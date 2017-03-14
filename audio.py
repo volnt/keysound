@@ -1,12 +1,11 @@
 import math
+import pyaudio
 
-from pyaudio import PyAudio
 
-
-class Audio(PyAudio):
+class Audio(pyaudio.PyAudio):
 
     def __init__(self, bitrate=16000):
-        PyAudio.__init__(self)
+        pyaudio.PyAudio.__init__(self)
 
         self.bitrate = bitrate
         self.stream = self.open(format=self.get_format_from_width(1), channels=1, rate=self.bitrate, output=True)
